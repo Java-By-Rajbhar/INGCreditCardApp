@@ -5,7 +5,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -22,11 +21,11 @@ public class PayController {
 	PayServiceImpl payServiceImpl;
 	private static final Logger logger = LoggerFactory.getLogger(PayController.class);
 
-	@PostMapping("/pay/{customerId}")
-	public ResponseEntity<PayResponseDto> payNow(@PathVariable long customerId,CreditCardRequestDto creditCardRequestDto)
+	@PostMapping("/pay")
+	public ResponseEntity<PayResponseDto> payNow(CreditCardRequestDto creditCardRequestDto)
 	{
 		logger.info("inside payNow method of PayController class");
-		PayResponseDto response = payServiceImpl.pay(customerId, creditCardRequestDto);
+		PayResponseDto response = payServiceImpl.pay (creditCardRequestDto);
 		return new ResponseEntity<PayResponseDto>(response, HttpStatus.OK);
 
 	}
