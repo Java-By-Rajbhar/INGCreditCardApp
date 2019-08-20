@@ -44,5 +44,18 @@ public class ExceptionHandlerAdvice extends ResponseEntityExceptionHandler {
 		ResponseError error =  new ResponseError(ex.getMessage(), HttpStatus.NOT_FOUND.value());
 		return new ResponseEntity<ResponseError>(error, HttpStatus.NOT_FOUND);
 	}
+	@ExceptionHandler(CreditCardDoesNotExistsException.class)
+	public ResponseEntity<ResponseError> creditCardExceptionHandler(CreditCardDoesNotExistsException ex)
+	{
+		ResponseError error =  new ResponseError(ex.getMessage(), HttpStatus.NOT_FOUND.value());
+		return new ResponseEntity<ResponseError>(error, HttpStatus.NOT_FOUND);
+	}
+	
+	@ExceptionHandler(WrongCreditCardDetailException.class)
+	public ResponseEntity<ResponseError> creditCardExceptionHandler(WrongCreditCardDetailException ex)
+	{
+		ResponseError error =  new ResponseError(ex.getMessage(), HttpStatus.NOT_FOUND.value());
+		return new ResponseEntity<ResponseError>(error, HttpStatus.NOT_FOUND);
+	}
 	
 }
