@@ -11,5 +11,6 @@ import lombok.Setter;
 @AllArgsConstructor
 public class OtpRequestDto {
 	private Long otp;
+	private Long referenceId;
 
 }

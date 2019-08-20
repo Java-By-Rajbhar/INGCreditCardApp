@@ -12,5 +12,6 @@ public class PayResponseDto {
 	
 	private int statusCode;
 	private String message;
+	private Long creditCardId;
 
 }
