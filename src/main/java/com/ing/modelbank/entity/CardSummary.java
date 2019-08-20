@@ -17,21 +17,18 @@ import lombok.Setter;
 @Setter
 @Getter
 @NoArgsConstructor
-public class CardSummary implements Serializable{
-	
+public class CardSummary implements Serializable {
+
 	private static final long serialVersionUID = 28803814348600742L;
-	
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long transactionId;
 	private String merchantName;
 	private Double amount;
-	private Date transactionDate ;
+	private String transactionDate;
 	private String transactionType;
 	@ManyToOne
 	private Customer customer;
-
-
 
 }

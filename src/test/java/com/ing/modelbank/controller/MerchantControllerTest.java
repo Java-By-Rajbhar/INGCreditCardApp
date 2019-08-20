@@ -22,6 +22,7 @@ import com.ing.modelbank.service.MerchantServiceImpl;
 @RunWith(SpringJUnit4ClassRunner.class)
 public class MerchantControllerTest {
 
+
 	@Mock
 	MerchantServiceImpl MerchantServiceImpl;
 	private MockMvc mockMvc;
@@ -39,6 +40,7 @@ public class MerchantControllerTest {
 		merchantResponseDto = new MerchantResponseDto();
 		MockitoAnnotations.initMocks(this);
 		this.mockMvc = MockMvcBuilders.standaloneSetup(merchantController).build();
+
 
 	}
 

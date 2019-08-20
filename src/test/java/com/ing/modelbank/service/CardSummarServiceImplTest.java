@@ -56,7 +56,7 @@ public class CardSummarServiceImplTest {
 		cardSummary.setAmount(1000.0);
 		cardSummary.setCustomer(customer);
 		cardSummary.setMerchantName("AMAZON");
-		cardSummary.setTransactionDate(new Date());
+		cardSummary.setTransactionDate("17/08/2018");
 		cardSummary.setTransactionType("DEBIT");
 		carSummaryList.add(cardSummary);
 		cardSummryDto.setCardSummary(carSummaryList);
