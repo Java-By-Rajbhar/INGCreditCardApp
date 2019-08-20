@@ -30,6 +30,7 @@ public class MailService {
 	public MailService(JavaMailSender javaMailSender) {
 		this.javaMailSender = javaMailSender;
 	}
+	
 
 	/**
 	 * This function is used to send mail without attachment.
@@ -61,6 +62,28 @@ public class MailService {
 		javaMailSender.send(mail);
 	}
 
+
+	public void sendEmails(String email,long referenceId,  long otp) throws MailException {
+
+		/*
+		 * This JavaMailSender Interface is used to send Mail in Spring Boot. This
+		 * JavaMailSender extends the MailSender Interface which contains send()
+		 * function. SimpleMailMessage Object is required because send() function uses
+		 * object of SimpleMailMessage as a Parameter
+		 */
+
+		SimpleMailMessage mail = new SimpleMailMessage();
+		mail.setTo(email);
+		mail.setSubject("OTP for ModelBank");
+		mail.setText("Added ReferenceID :" + referenceId+ 
+				" OTP-" +otp 
+						);
+
+		/*
+		 * This send() contains an Object of SimpleMailMessage as an Parameter
+		 */
+		javaMailSender.send(mail);
+	}
 	
 
 

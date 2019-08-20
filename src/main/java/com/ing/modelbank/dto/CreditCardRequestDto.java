@@ -15,5 +15,6 @@ public class CreditCardRequestDto {
 	private String expiryDate;
 	private int cvv;
 	private String creditCardHolderName;
+	private long customerId;
 
 }

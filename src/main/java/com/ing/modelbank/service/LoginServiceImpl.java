@@ -27,18 +27,19 @@ public class LoginServiceImpl implements LoginService {
 	public LoginResponseDto login(LoginDto loginDto) {
 		LoginResponseDto loginResponseDto = new LoginResponseDto();
 		Customer customer = customerRepository.findByLoginIdAndPassword(loginDto.getLoginId(), loginDto.getPassword());
-
 		if (customer != null) {
 			LOGGER.info("customer fetched");
 			Account account = accountRepository.findByCustomer(customer.getCustomerId());
 			loginResponseDto.setAccountNumber(account.getAccountNumber());
 			loginResponseDto.setMessage("logged in successfully..");
-			return loginResponseDto;
+			loginResponseDto.setCustomerId(customer.getCustomerId());
+			loginResponseDto.setStatusCode(200);
+			
 		} else {
 			loginResponseDto.setMessage("invalid credentials");
-			return loginResponseDto;
+			
 		}
-
+   return loginResponseDto;
 	}
 
 }

@@ -10,6 +10,6 @@ import com.ing.modelbank.dto.PayResponseDto;
  */
 public interface PayService {
 	
-	public PayResponseDto pay(long customerId,CreditCardRequestDto creditCardRequestDto);
+	public PayResponseDto pay(CreditCardRequestDto creditCardRequestDto);
 
 }
