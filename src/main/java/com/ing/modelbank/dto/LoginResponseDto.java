@@ -10,4 +10,6 @@ import lombok.Setter;
 public class LoginResponseDto {
 	private String message;
 	private Integer accountNumber;
+	private Long customerId;
+	private Integer statusCode;
 }

@@ -7,7 +7,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
-
 import com.ing.modelbank.dto.CreditCardRequestDto;
 import com.ing.modelbank.dto.PayResponseDto;
 import com.ing.modelbank.entity.CreditCard;
@@ -24,7 +23,6 @@ import com.ing.modelbank.repository.OtpRepository;
  */
 @Service
 public class PayServiceImpl implements PayService {
-
 	@Autowired
 	CreditCardRepository creditCardRepository;
 
@@ -45,6 +43,7 @@ public class PayServiceImpl implements PayService {
 		logger.info("email  data={}", creditCardDetail.getCustomer().getEmail());
 
 		if (creditCardDetail != null) {
+			
 			if (creditCardDetail.getCardCardNumber().equals(creditCardRequestDto.getCardCardNumber())
 					&& creditCardDetail.getCvv() == creditCardRequestDto.getCvv()
 					&& creditCardDetail.getExpiryDate().equals(creditCardRequestDto.getExpiryDate()) && creditCardDetail
