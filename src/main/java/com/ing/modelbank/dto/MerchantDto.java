@@ -7,7 +7,7 @@ import lombok.Setter;
 @Getter
 public class MerchantDto {
 	
-	private Integer merchandtId;
+	private Integer merchantId;
 	private String merchantName;
 	private String product;
 	private double price;

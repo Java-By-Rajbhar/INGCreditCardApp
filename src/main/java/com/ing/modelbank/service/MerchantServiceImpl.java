@@ -29,32 +29,35 @@ public class MerchantServiceImpl implements MerchantService {
 
 	@Override
 
-	public ResponseEntity<List<MerchantDto>> getListOfMerchants() {
+	public List<MerchantDto> getListOfMerchants() {
 
 		logger.info("inside getListOfMerchants method of merchant Service class");
 
 		List<MerchantDto> merchant = new ArrayList<>();
+		
 		List<Merchant> merchantlist = merchantRepository.findAll();
+		
 		for (Merchant merchant2 : merchantlist) {
 			MerchantDto merchantDto = new MerchantDto();
-			merchantDto.setMerchandtId(merchant2.getMerchantId());
+			merchantDto.setMerchantId(merchant2.getMerchantId());
 			merchantDto.setMerchantName(merchant2.getMerchantName());
 			merchantDto.setPrice(merchant2.getPrice());
 			merchantDto.setProduct(merchant2.getProduct());
-
+			
 			merchant.add(merchantDto);
-		}
-
-		return new ResponseEntity<List<MerchantDto>>(merchant, HttpStatus.OK);
+			}
+		    return merchant;
+				
 	}
-	
-	public MerchantResponseDto getmerchant(int merchantId) {
+
+  @Override
+	public MerchantResponseDto getmerchant(int merchantId) 
+	{
 		logger.info("inside getListOfMerchants method of merchant Service class");
 		MerchantResponseDto merchantResponseDto=new MerchantResponseDto();
 		Merchant merchant	=merchantRepository.findByMerchantId(merchantId);
 			BeanUtils.copyProperties(merchant, merchantResponseDto);
 			return merchantResponseDto;
 	}
-
 
 }

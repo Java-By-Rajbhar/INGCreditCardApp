@@ -28,13 +28,11 @@ import com.ing.modelbank.repository.CustomerRepository;
 import com.ing.modelbank.repository.MerchantRepository;
 import com.ing.modelbank.repository.OtpRepository;
 
-/**
- * 
- * @author Sushil
- *
- */
+
 @Service
+
 public class PayServiceImpl implements PayService {
+
 	@Autowired
 	CreditCardRepository creditCardRepository;
     @Autowired

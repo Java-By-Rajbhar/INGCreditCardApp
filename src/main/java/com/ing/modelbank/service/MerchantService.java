@@ -13,7 +13,7 @@ import com.ing.modelbank.dto.MerchantDto;
 public interface MerchantService {
 	
 	
-	ResponseEntity<List<MerchantDto>> getListOfMerchants();
+	List<MerchantDto> getListOfMerchants();
 
 	MerchantResponseDto getmerchant(int merchantId);
 

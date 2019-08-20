@@ -38,8 +38,8 @@ public class MerchantController {
 	{
 		logger.info("inside getAllMerchants method of merchant controller class");
 
-		ResponseEntity<List<MerchantDto>> list = merchantService.getListOfMerchants();
-		return list;
+		List<MerchantDto> list = merchantService.getListOfMerchants();
+		return new ResponseEntity<>(list,HttpStatus.OK);
 
 	}
 	
