@@ -1,7 +1,6 @@
 package com.ing.modelbank.controller;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -19,8 +18,10 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.ing.modelbank.dto.CardDetailDto;
 import com.ing.modelbank.dto.CardSummryDto;
 import com.ing.modelbank.entity.CardSummary;
+import com.ing.modelbank.entity.CreditCard;
 import com.ing.modelbank.entity.Customer;
 import com.ing.modelbank.service.CardSummaryService;
 
@@ -78,7 +79,37 @@ public class CardSummaryControllerTest {
 
 	@Test
 	public void testCardDetail() {
-		fail("Not yet implemented");
+
+		CreditCard creditCard=new CreditCard();
+		creditCard.setCardCardNumber(12345678L);
+		creditCard.setCreditCardHolderName("Shashank Kumar");
+		creditCard.setCreditCardId(1L);
+		creditCard.setCreditCardType("GOLD");
+		creditCard.setCreditLimit(100000);
+		Customer customer =new Customer();
+		customer.setAddress("BTM");
+		customer.setAge(30L);
+		customer.setCustomerId(1L);
+		customer.setEmail("a@a.com");
+		customer.setFirstName("shashank");
+		customer.setLastName("kumar");
+		customer.setLoginId("1");
+		customer.setMobileNo(8970297757L);
+		customer.setPan("CKL5");
+		customer.setPassword("ok");
+		creditCard.setCustomer(customer);
+		creditCard.setCvv(990);
+		
+		CardDetailDto cardDetailDto=new CardDetailDto();
+		cardDetailDto.setCreditCardNumber(9876987698769876L);
+		cardDetailDto.setCreditCardType("GOLD");
+		cardDetailDto.setCreditLimit(25000);
+		
+		
+		Mockito.when(cardService.cardDetails(Mockito.anyLong())).thenReturn(cardDetailDto);
+		 ResponseEntity<CardDetailDto> cardDetailactual=cardSummaryController.cardDetail(1L);
+		 assertEquals("GOLD", cardDetailactual.getBody().getCreditCardType());
+		
 	}
 
 public static String asJsonString(final Object obj) {
