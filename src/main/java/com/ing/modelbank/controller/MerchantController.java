@@ -43,7 +43,6 @@ public class MerchantController {
 
 	}
 	
-
 	@GetMapping("/merchant/{merchantId}")
 	public ResponseEntity<MerchantResponseDto> getmerchant(@PathVariable int merchantId){
 		MerchantResponseDto merchantResponseDto=merchantService.getmerchant(merchantId);
