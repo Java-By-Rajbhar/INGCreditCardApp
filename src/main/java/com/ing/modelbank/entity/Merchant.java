@@ -23,8 +23,8 @@ public class Merchant implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer merchandtId;
-	private String merchantString;
+    private int merchantId;
+	private String merchantName;
 	private String product;
 	private double price;
 }
